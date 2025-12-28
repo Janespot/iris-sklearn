@@ -52,3 +52,16 @@ preds = classifier_knn.predict(sample)
 pred_species = [iris.target_names[p] for p in preds]
 print("Predictions1: ", preds)
 print("Predictions: ", pred_species)
+
+# represent iris dataset as a table, i.e. Pandas DataFrame, using seaborn and print the first 5 rows
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+print(iris.head())
+
+# Visually explore Iris dataset
+import matplotlib.pyplot as plt
+sns.set_theme()
+sns.pairplot(iris, hue = 'species', height = 3)
+
+plt.show()
