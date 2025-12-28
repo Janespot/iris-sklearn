@@ -65,3 +65,10 @@ sns.set_theme()
 sns.pairplot(iris, hue = 'species', height = 3)
 
 plt.show()
+
+# predict flower species based on other measurements, setting Species column as the feature column
+X_iris = iris.drop('species', axis = 1)
+print(X_iris.shape)
+
+y_iris = iris['species']
+print(y_iris.shape)
