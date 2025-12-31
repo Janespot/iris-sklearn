@@ -61,10 +61,10 @@ print(iris.head())
 
 # Visually explore Iris dataset
 import matplotlib.pyplot as plt
-sns.set_theme()
-sns.pairplot(iris, hue = 'species', height = 3)
+# sns.set_theme()
+# sns.pairplot(iris, hue = 'species', height = 3)
 
-plt.show()
+# plt.show()
 
 # predict flower species based on other measurements, setting Species column as the feature column
 X_iris = iris.drop('species', axis = 1)
@@ -72,3 +72,36 @@ print(X_iris.shape)
 
 y_iris = iris['species']
 print(y_iris.shape)
+
+# Estimator API supervised learning example - Simple Linear Regression
+import numpy as np
+
+rng = np.random.RandomState(35)
+x = 10 * rng.rand(40)
+y = 2 * x - 1 + rng.randn(40)
+
+# plt.scatter(x, y)
+
+# plt.show()
+
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression(fit_intercept=True)
+
+print(model)
+
+X = x[:, np.newaxis]
+print(X.shape)
+
+model.fit(X, y)
+
+print(model.coef_)
+print(model.intercept_)
+
+xfit = np.linspace(-1, 11)
+Xfit = xfit[:, np.newaxis]
+yfit = model.predict(Xfit)
+
+plt.scatter(x, y)
+plt.plot(xfit, yfit)
+plt.show()
